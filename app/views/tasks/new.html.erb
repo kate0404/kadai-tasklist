@@ -1,6 +1,6 @@
 <h1>タスク新規作成ページ</h1>
 
-<%= form_for(task) fo |f| %>
+<%= form_for(@task) do |f| %>
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
   
@@ -9,3 +9,5 @@
 <% end %>
 
 <%= link_to '一覧に戻る', tasks_path %>
+
+<!--params = { task: { content: "ここに入力が入る" }, submit: "追加" }-->
