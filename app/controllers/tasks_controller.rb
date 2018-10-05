@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
   
   def show
-    @task.show
+   @task = Task.find(params[:id])
   end
   
   def new
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
   
   def edit
-    @task.edit
+    @task = Task.find(params[:id])
   end
   
   def update
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
   end
   
   def correct_user
-    @task = correct_user.tasks.find_by(id: params[:id])
+    @task = current_user.tasks.find_by(id: params[:id])
     unless @task
       redirect_to root_url
     end
